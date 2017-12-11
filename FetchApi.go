@@ -7,10 +7,15 @@ import (
 )
 
 func main() {
-	httpGet("http://140.124.39.202:30001/api/onsale")
+	data := httpGet("http://140.124.39.202:30001/api/onsale")
+	err := ioutil.WriteFile("data.json", []byte(data), 0644)
+
+	if err != nil {
+		// handle error
+	}
 }
 
-func httpGet(url string) {
+func httpGet(url string) (data string) {
 	resp, err := http.Get(url)
 	if err != nil {
 		// handle error
@@ -23,4 +28,6 @@ func httpGet(url string) {
 	}
 
 	fmt.Println(string(body))
+
+	return string(body)
 }
