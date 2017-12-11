@@ -1,1 +1,5 @@
-FROM golang:latest
+FROM golang
+
+ADD . /code/go/FetchApiToJson
+
+EXPOSE 8080
