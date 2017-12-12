@@ -1,7 +1,13 @@
-version: '3.0'
+version: '2.0'
 services:
   apiToJson:
-    image: yitinglee/ci_fetchapi
+    image: yitinglee/apitojson
     ports:
-      - "80:80"
+      - "5000:8080"
+  
+  jsonToAPI:
+    image: yitinglee/jsontoapi
+    ports:
+      - "8080:8080"
+
 
